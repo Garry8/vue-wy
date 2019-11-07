@@ -18,6 +18,8 @@
     </div>
 
     <img class="n-Ione" :src="mainList && mainList[0].img" />
+    <!-- <img class="n-Ione" src="../../images/10241.png" /> -->
+
 
     <div class="cont-mes">
       <p>&nbsp;&nbsp;&nbsp;&nbsp;据了解，8月中下旬开始，广州昌岗朝圣一带的环卫工人发现，周边河涌里有很多共享单车，疑似是被人故意扔下去的。环卫工人们将单车打捞上来，并告知了昌岗街朝圣居委会。</p>
