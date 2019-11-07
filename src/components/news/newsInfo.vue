@@ -3,21 +3,21 @@
     <!-- <h3>这是newsinfo页面的内容</h3> -->
     <div class="n-Iyu">
       <div class="n-Itg">
-        露天的山顶:泡一壶山景红茶
-        <p>天涯若比邻...</p>
+        {{mainList && mainList[0].oneTitle}}
+        <p>{{mainList && mainList[0].lessTitle}}</p>
       </div>
-      <div class="n-Ireg"></div>
+      <span class="bTag">星游精选</span>
     </div>
 
     <div class="n-Iuh">
       <div class="n-Ifo">
         <img class="n-Itub" src="../../images/010.png" />
-        <span class="pure">秋天的凉风</span>
-        <span class="thr-op">3.6万推荐></span>
+        <span class="pure">{{mainList && mainList[0].author}}</span>
+        <span class="thr-op">{{mainList && mainList[0].seeTimes}}万推荐></span>
       </div>
     </div>
 
-    <img class="n-Ione" src="../../images/022.png" alt />
+    <img class="n-Ione" :src="mainList && mainList[0].img" alt />
 
     <div class="cont-mes">
       <p>&nbsp;&nbsp;&nbsp;&nbsp;据了解，8月中下旬开始，广州昌岗朝圣一带的环卫工人发现，周边河涌里有很多共享单车，疑似是被人故意扔下去的。环卫工人们将单车打捞上来，并告知了昌岗街朝圣居委会。</p>
@@ -25,6 +25,7 @@
       <p>&nbsp;&nbsp;&nbsp;&nbsp;哈啰出行方面表示，扔共享单车进入河涌是违法行为，希望更多人向环卫工人学习，也为他们着想，不做如此损人不利己的事情。</p>
     </div>
 
+    <div class="end">-THE END-</div>
   </div>
 </template>
 
@@ -32,9 +33,26 @@
 export default {
   data() {
     return {
-      // id: this.$rou.params.id  // 将url地址中传递过来的id值,挂载到data身上  注意这里的$rou不行就换成$router :id就用这种 如果是?id 就用query
+      // id: this.$router.params.id,  // 将url地址中传递过来的id值,挂载到data身上  注意这里的$rou不行就换成$router :id就用这种 如果是?id 就用query
+      mainList:"",
     };
-  }
+  },
+  created() {
+    this.getMainText();
+  },
+  methods: {
+    getMainText(){
+      this.$http
+        .get("http://localhost:8080/getDateTwo/mainTextServlet")
+        .then(result => {
+          if (result.status === 200) {
+            this.mainList = result.data;
+          } else {
+            Toast("获取数据失败");
+          }
+        });
+    }
+  },
 };
 </script>
 
@@ -64,12 +82,13 @@ export default {
     }
   }
 
-  .n-Ireg {
+  .bTag {
+    font-size: 12px;
+    margin-right: 6px;
+    color: #ffc90e;
+    border: 1px solid #ffc90e;
+    border-radius: 4px;
     float: right;
-    width: 30px;
-    height: 12px;
-    background-color: #808080;
-    border-radius: 10px;
     position: absolute;
     top: 50%;
     right: 4%;
@@ -85,8 +104,7 @@ export default {
 
   .n-Ione {
     width: 100%;
-    height: 200px;
-    border-radius: 6px;
+    height: 260px;
   }
 
   .n-Iuh {
@@ -131,8 +149,18 @@ export default {
   .cont-mes {
     padding: 2% 4%;
     p {
-      line-height: 26px;
+      margin: 10px;
+      line-height: 24px;
+      font-size: 14px;
+      color: #444;
+      word-break: break-word;
     }
+
   }
+    .end{
+      padding: 10px;
+      text-align: center;
+      color: #ccc;
+    }
 }
 </style>

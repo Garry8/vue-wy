@@ -27,15 +27,15 @@
           <span class="mui-badge">9</span>
         </span>
         <span class="mui-tab-label">消息</span>
-      </router-link>
+      </router-link> -->
       <router-link class="mui-tab-item-ww" to="/vip">
         <span class="mui-icon mui-icon-contact"></span>
         <span class="mui-tab-label">会员</span> 
-      </router-link>-->
-      <router-link class="mui-tab-item-ww" to="/setting">
+      </router-link>
+      <!-- <router-link class="mui-tab-item-ww" to="/setting">
         <span class="mui-icon mui-icon-gear"></span>
         <span class="mui-tab-label">设置</span>
-      </router-link>
+      </router-link> -->
     </nav>
 
   </div>
@@ -61,7 +61,7 @@ export default {
   },
   watch:{
     "$route.path":function(newVal){
-      if (newVal === "/home" ||  newVal === "/setting" ){
+      if (newVal === "/home" ||  newVal === "/vip" ){
         this.flag = false,
         this.Tflag = true
       }else{
