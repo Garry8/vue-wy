@@ -1,0 +1,7 @@
+// 这里的波浪线没有出现报错 程序bug 因为添加了多个plugins
+{
+  "presets": ["env", "stage-0"],
+  "plugins": ["transform-runtime", ["component", [
+    { "libraryName": "mint-ui", "style": true }
+    ]],"transform-remove-strict-mode"]
+}
