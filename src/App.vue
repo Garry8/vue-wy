@@ -51,6 +51,7 @@ export default {
     }
   },
   created() {
+    // this.$store.state.boolnum = 0
     this.flag = this.$route.path === "/home" ? false : true
     this.Tflag = this.$route.path !== "/home" ? false : true
   },
@@ -82,6 +83,8 @@ export default {
 }
 // 中间显示区域body
 .appCont {
+  height: 100%;
+  position: relative;
   // padding-top: 40px;
   padding-bottom: 50px;
   overflow-x: hidden;

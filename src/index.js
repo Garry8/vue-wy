@@ -49,6 +49,16 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
 
+//导入vuex
+// import vuex from 'vuex'
+// Vue.use(vuex)
+
+// var store = new vuex.Store({
+//   state:{
+//     boolnum: 0,
+//   }
+// })
+
 
 // 导入mui框架的部分组件 下面是局部引用button按钮  Header头部  Swipe SwipeItem轮播图 的ui模块 注意还要在babelrc中写一段代码 
 // import { Button, Header, Swipe, SwipeItem, Lazyload } from 'mint-ui'
@@ -66,6 +76,7 @@ Vue.use(MintUI)
 
 var vm = new Vue({
   el: '#app',
+  // store,
   // 将App.vue
   render: c => c(App),
   router: router,
