@@ -24,12 +24,12 @@
 
         <vue-preview :slides="listTwo" @close="handleClose">
           <div class="middWe">
-            <img :src="newser[1].oneimg" />
-            <img :src="newser[1].twoimg" />
-            <img :src="newser[1].threeimg" />
-            <img :src="newser[1].fourimg" />
-            <img :src="newser[1].fiveimg" />
-            <img :src="newser[1].siximg" />
+            <img :src="listTwo.oneimg" />
+            <img :src="listTwo.twoimg" />
+            <img :src="listTwo.threeimg" />
+            <img :src="listTwo.fourimg" />
+            <img :src="listTwo.fiveimg" />
+            <img :src="listTwo.siximg" />
           </div>
         </vue-preview>
       </div>

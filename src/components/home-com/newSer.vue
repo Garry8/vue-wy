@@ -24,12 +24,12 @@
 
         <vue-preview :slides="listOne" @close="handleClose">
           <div class="middWe">
-            <img :src="newser[0].oneimg" />
-            <img :src="newser[0].twoimg" />
-            <img :src="newser[0].threeimg" />
-            <img :src="newser[0].fourimg" />
-            <img :src="newser[0].fiveimg" />
-            <img :src="newser[0].siximg" />
+            <img :src="listOne.oneimg" />
+            <img :src="listOne.twoimg" />
+            <img :src="listOne.threeimg" />
+            <img :src="listOne.fourimg" />
+            <img :src="listOne.fiveimg" />
+            <img :src="listOne.siximg" />
           </div>
         </vue-preview>
       </div>
@@ -94,6 +94,15 @@ export default {
                 { src: six, w: 600, h: 400, msrc: six }
               ]);
             }
+            // for (let i in this.list[0]) {
+            //     this.listOne.push(this.list[0][i]); 
+            // }
+
+            // for (let i in this.list[0]) {
+            //     let o = {};
+            //     o[i] = this.list[0][i];
+            //     this.listOne.push(o)
+            // }
             this.listOne = this.list[0];
             
           } else {

@@ -71,7 +71,8 @@ export default {
     right(){
       if(this.login == this.backData[0].log && this.register == this.backData[0].regi){
         Toast("登录成功");
-        this.$store.state.boolnum = 1;
+        // this.$store.state.boolnum = 1;
+        
         this.$router.push("/home")
       }else{
         Toast("登录失败");
