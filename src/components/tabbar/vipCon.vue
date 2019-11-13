@@ -18,8 +18,8 @@
 
       <div class="otherRe">
         <p>其他登录方式</p> 
-        <img @click="moreGet()" src="../../images/p-01.png" alt="">
-        <img @click="moreGet()" src="../../images/p-02.png" alt="">
+        <img @click="moreGet()" src="../../images/oo-01.png" alt="">
+        <img @click="moreGet()" src="../../images/oo-02.png" alt="">
       </div>
     </div>
   </div>

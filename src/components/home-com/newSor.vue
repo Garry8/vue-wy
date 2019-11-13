@@ -5,42 +5,42 @@
     </div>
 
     <!-- <li v-for="item in newser" :key="item.id"> -->
-      <li v-if="newser[0]">
+      <li v-if="newser[1]">
       <div class="ltitle" >
-        <img :src="newser[0].authorimg" />
+        <img :src="newser[1].authorimg" />
         <div class="rigText">
-          <p class="tpName">{{newser[0].author}}</p>
+          <p class="tpName">{{newser[1].author}}</p>
           <p class="tpText">
             6小时前
-            <span>{{newser[0].autotext}}</span>
+            <span>{{newser[1].autotext}}</span>
           </p>
         </div>
       </div>
 
-      <p class="miTitle">{{newser[0].text}}</p>
+      <p class="miTitle">{{newser[1].text}}</p>
 
       <div class="middleText">
         <!-- <vue-preview v-for="item in list" :key="item.src" :slides="item" @close="handleClose"></vue-preview> -->
 
-        <vue-preview :slides="listOne" @close="handleClose">
+        <vue-preview :slides="listTwo" @close="handleClose">
           <div class="middWe">
-            <img :src="newser[0].oneimg" />
-            <img :src="newser[0].twoimg" />
-            <img :src="newser[0].threeimg" />
-            <img :src="newser[0].fourimg" />
-            <img :src="newser[0].fiveimg" />
-            <img :src="newser[0].siximg" />
+            <img :src="newser[1].oneimg" />
+            <img :src="newser[1].twoimg" />
+            <img :src="newser[1].threeimg" />
+            <img :src="newser[1].fourimg" />
+            <img :src="newser[1].fiveimg" />
+            <img :src="newser[1].siximg" />
           </div>
         </vue-preview>
       </div>
 
       <div class="bRight">
         <div class="brTitle">
-          <span>{{newser[0].seeTimes}}</span>
+          <span>{{newser[1].seeTimes}}</span>
           <b>浏览</b>
         </div>
         <div class="brTitle">
-          <span>{{newser[0].likeTimes}}</span>
+          <span>{{newser[1].likeTimes}}</span>
           <b>喜欢</b>
         </div>
       </div>
@@ -56,15 +56,14 @@ export default {
       id:this.$route.params.yid,
       newser: [],
       list: [],
-      listOne: {},
-     
+      listTwo: {},
     };
   },
   created() {
     this.getnewText();
     this.getnewOneText();
   },
-  
+ 
   methods: {
     handleClose() {
       console.log("close event");
@@ -94,8 +93,7 @@ export default {
                 { src: six, w: 600, h: 400, msrc: six }
               ]);
             }
-            this.listOne = this.list[0];
-            
+            this.listTwo = this.list[1];
           } else {
             Toast("获取数据失败");
           }

@@ -64,6 +64,8 @@
 
     <!-- 列表图 -->
     <newSer></newSer>
+    <newSor></newSor>
+    <newSpr></newSpr>
     
   </div>
 </template>
@@ -78,6 +80,8 @@ import hotSec from "../home-com/hotSec.vue";
 import hotThir from "../home-com/hotThir.vue";
 import hotLi from "../home-com/hotListAll.vue";
 import newSer from "../home-com/newSer.vue";
+import newSor from "../home-com/newSor.vue";
+import newSpr from "../home-com/newSpr.vue";
 
 export default {
   data() {
@@ -123,6 +127,8 @@ export default {
     hotLi,
     swiper,
     newSer,
+    newSor,
+    newSpr,
   }
 };
 </script>
