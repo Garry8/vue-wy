@@ -78,6 +78,9 @@ export default {
   created() {
     this.getLunbo();
     this.getHotText();
+    this.$bus.$on('imgload',() =>{
+      this.$refs.scroll.scrollHeight = 600
+    })
   },
   methods: {
     getLunbo() {

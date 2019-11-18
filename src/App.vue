@@ -81,7 +81,7 @@ export default {
   height: 100%;
   position: relative;
   // padding-top: 40px;
-  padding-bottom: 50px;
+  // padding-bottom: 50px;
   overflow-x: hidden;
 }
 

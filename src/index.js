@@ -63,7 +63,7 @@ import './lib/MUI/css/mui.css'
 
 
 
-
+Vue.prototype.$bus = new Vue()
 
 
 // 全局导入mint.ui 如果想压缩文件 可以进行部分按需导入

@@ -19,10 +19,10 @@
 
       <p class="miTitle">{{newser[0].text}}</p>
 
-      <div class="middleText">
+      <div class="middleText" @click="imgload()">
         <!-- <vue-preview v-for="item in list" :key="item.src" :slides="item" @close="handleClose"></vue-preview> -->
 
-        <vue-preview :slides="listOne" @close="handleClose">
+        <vue-preview :slides="listOne" @close="handleClose" >
           <div class="middWe">
             <img :src="listOne.oneimg" />
             <img :src="listOne.twoimg" />
@@ -67,6 +67,9 @@ export default {
   },
 
   methods: {
+    imgload(){
+      this.$bus.$emit('imgload')
+    },
     handleClose() {
       console.log("close event");
     },
