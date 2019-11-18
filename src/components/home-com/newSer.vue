@@ -19,7 +19,7 @@
 
       <p class="miTitle">{{newser[0].text}}</p>
 
-      <div class="middleText" @click="imgload()">
+      <div class="middleText">
         <!-- <vue-preview v-for="item in list" :key="item.src" :slides="item" @close="handleClose"></vue-preview> -->
 
         <vue-preview :slides="listOne" @close="handleClose" >
@@ -32,6 +32,16 @@
             <img :src="listOne.siximg" />
           </div>
         </vue-preview>
+
+        <!-- <section>
+          <img
+            v-for="item in listOne"
+            :src="item.src"
+            :key="item.src"
+            preview=1
+            :preview-text="item.title"
+          />
+        </section> -->
       </div>
 
       <div class="bRight">
@@ -67,8 +77,8 @@ export default {
   },
 
   methods: {
-    imgload(){
-      this.$bus.$emit('imgload')
+    imgload() {
+      this.$bus.$emit("imgload");
     },
     handleClose() {
       console.log("close event");

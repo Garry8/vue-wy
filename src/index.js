@@ -34,12 +34,9 @@ Vue.use(VuePreview, {
 })
 
 //导入vue-photo-preview ...
-// import preview from 'vue-photo-preview'
-// import 'vue-photo-preview/dist/skin.css'
-// let options = {
-//   fullscreenEl: false
-// };
-// Vue.use(preview, options)
+import preview from 'vue-photo-preview'
+import 'vue-photo-preview/dist/skin.css'
+Vue.use(preview)
 
 
 // 导入图片放大插件

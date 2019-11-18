@@ -69,6 +69,7 @@ export default {
 .swipIn {
   height: 100%;
   margin-top: 40px;
+  padding-bottom: 50px;
   // padding-bottom:0;
   background-color: #fff;
 
