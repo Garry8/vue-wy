@@ -57,7 +57,7 @@ export default {
       list: [],
       listTwo: {
         type: Array,
-        default: () => ({})
+        default: () => []
       }
     };
   },

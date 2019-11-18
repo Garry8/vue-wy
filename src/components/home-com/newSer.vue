@@ -57,7 +57,7 @@ export default {
       list: [],
       listOne: {
         type: Array,
-        default: () => ({})
+        default: () => []
       }
     };
   },

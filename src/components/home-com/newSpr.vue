@@ -57,7 +57,7 @@ export default {
       list: [],
       listThree: {
         type: Array,
-        default: () => ({})
+        default: () => []
       }
     };
   },
