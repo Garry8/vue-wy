@@ -5,6 +5,8 @@ import setting from './components/tabbar/settingCon.vue'
 import vip from './components/tabbar/vipCon.vue'
 import newsList from './components/news/newsList.vue'
 import newsInfo from './components/news/newsInfo.vue'
+import newsSec from './components/news/newsSec.vue'
+import newsThr from './components/news/newsThr.vue'
 import photoList from './components/photos/photoList.vue'
 import photoInfo from './components/photos/photoInfo.vue'
 import shopList from './components/shops/shopList.vue'
@@ -26,6 +28,8 @@ var router = new VueRouter({
     { path:'/home/newsInfo', component: newsInfo},
     { path:'/home/photoList', component: photoList},
     { path:'/home/photoInfo', component: photoInfo},
+    { path:'/home/newsSec', component: newsSec},
+    { path:'/home/newsThr', component: newsThr},
     { path:'/home/shopList',component: shopList},
     { path:'/home/swiperInfoOne/:id',component: swiperInfoOne,name:'swiperInfoOne'},
     { path:'/home/swiperInfoTwo/:id',component: swiperInfoTwo,name:'swiperInfoTwo'},

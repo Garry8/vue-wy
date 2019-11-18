@@ -74,6 +74,7 @@ export default {
         // this.$store.state.boolnum = 1;
         
         this.$router.push("/home")
+        this.$bus.$emit('successLog')
       }else{
         Toast("登录失败");
       }

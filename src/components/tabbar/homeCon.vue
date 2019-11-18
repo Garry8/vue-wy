@@ -32,10 +32,14 @@
         </router-link>
 
         <!-- 热度二 -->
-        <hotSec :hotTwoText="hotText"></hotSec>
+        <router-link to="/home/newsSec">
+          <hotSec :hotTwoText="hotText"></hotSec>
+        </router-link>
 
         <!-- 热度三 -->
-        <hotThir :hotThirdText="hotText"></hotThir>
+        <router-link to="/home/newsThr">
+          <hotThir :hotThirdText="hotText"></hotThir>
+        </router-link>
 
         <!-- 热度表 -->
         <hotLi :hotListText="hotText"></hotLi>
@@ -78,8 +82,8 @@ export default {
   created() {
     this.getLunbo();
     this.getHotText();
-    this.$bus.$on('imgload',() =>{
-      this.$refs.scroll.scrollHeight = 600
+    this.$bus.$on('successLog',() =>{
+      console.log('---')
     })
   },
   methods: {
