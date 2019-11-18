@@ -1,21 +1,20 @@
-# 这个是初始的练习
+# 这个是初始的练习--依据黑马教程所实现的旅游类的 web app
 
+# 新手所记录的笔记与需要注意的代码
+# 虽然这样很繁琐
 
+------------------------------------------------------------
 
-待整理的内容  
-√ 1.状态图标3个 分别是  星选--星游--星记
-  2.设置图标   分别是  首页--个人管理
-√ 3.banner图   分别是  首页第一推荐的banner  第二推荐的B  第三推荐的B
-  4.需要的广告资料图   分别是    星选游记旅游相关的图片
-√ 5.logo叫做星选游
-  6.排版所涉及的装饰小图标
+# 注意事项
+  -- 首页数据请求的是自己用java写的servlet, 仅部署在Tomcat的服务器中提供本地运行
+  -- 点击跳转页面如是重复的需求或者是类似的页面,仅第一次用到了vue-source或者是axios,后面重复的部分为静态页面
+  -- 部分功能不完善,仅作练习vue用
+  -- 很多bug都没解决,希望多多交流 374792302@qq.com
 
+------------------------------------------------------------
 
+# 代码记录
 
-
-
-
-# 简单介绍一下代码的结构流程
 # 1.首先是在index.html中调用将index.js打包好的bundle.js
 entry: path.join(__dirname,'./src/index.js'),
   output: { 
@@ -32,7 +31,7 @@ render: c => c(App),
  body 内容区域  <router-view></router-view>
  footer 底部区域 
 
-# 4.底部选项栏中点击home标签 ,由router.js中设置好的路由跳转到homeCon的组件中 homeCon.vue的组件中有轮播图区域,还有图标的宫格区域 ,图标宫格区点击新闻图标 ,由router.js中设置好的路由跳转到newsList的组件中, newsList.vue的组件中根据vue-resource(类似Ajiax)请求后台API接口文档中的数据,并用v-for="item in newsList"循环 展示在newsList.vue的组件页面的列表中
+# 4.底部选项栏中点击home标签 ,由router.js中设置好的路由跳转到homeCon的组件中 homeCon.vue的组件中有轮播图区域,还有图标的宫格区域 ,图标宫格区点击新闻图标 ,由router.js中设置好的路由跳转到newsList的组件中, newsList.vue的组件中根据vue-resource(封装的Ajiax)请求后台API接口文档中的数据,并用v-for="item in newsList"循环 展示在newsList.vue的组件页面的列表中
   path:'/home', component: home 
  import newsList from './components/news/newsList.vue'
  v-for="item in newsList"
@@ -44,10 +43,11 @@ router-link :to="'/home/newsInfo' + item.id
 path:'/home/newsInfo/:id', component: newsInfo
 
 
-## 利用 concat 方法来拼接数据 例如将数据接收后拼接 再赋给comments 
+# 6.利用 concat 方法来拼接数据 例如将数据接收后拼接 再赋给comments 
 this.comments = this.comments.concat( result.body.message )
 
-## 发表评论
+
+# 7.发表评论--这个暂时没有实现
 + 1.首先在testarea输入框中进行双向数据绑定 v-model="msg" 
 + 2.然后在data里面定义 msg 为空 msg:''
 + 3.当用户填写好发表内容时候,点击达标评论的按钮时,在按钮绑定一个提交数据的方法 @click= "postCom"
@@ -56,7 +56,7 @@ this.comments = this.comments.concat( result.body.message )
 + 6.post请求要全局配置参数
 + 详见images图片里流程图5
 
-## 引用mui的横向滚动切换栏slider时
+# 8.引用mui的横向滚动切换栏slider时
 + 1.导入js文件import mui from "../../lib/MUI/js/mui.min.js";
 + 2.初始化js组件 并将它放在生命周期中最后一个  mounted()函数中
   mounted() {
@@ -70,3 +70,6 @@ this.comments = this.comments.concat( result.body.message )
   touch-action: pan-y;
 }
 + 5.横向滚动切换栏与底部导航栏出现样式污染,需要手动将底部导航栏的样式进行重新粘贴并更改属性名字
+
+# 9.关于vue-preview与better-scroll的插件运用
++ 1.图片点击放大的位置与滚动插件产生bug,这个一直困扰了很久,没能解决

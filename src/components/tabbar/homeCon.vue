@@ -1,78 +1,61 @@
 <template>
-  <div class="sw-pic">
-    <!-- <h3>这是home页面的内容</h3> -->
-    <swiper :lunboList="lunboList"></swiper>
 
-    <!-- 图标宫格区 -->
-    <div class="iconArea">
-      <!-- LOGO区域  因Logo单独放在外层区域会造成页面跳转的问题-->
-      <div class="topLogo"></div>
-      <div class="iconDi">
-        <router-link to="/home/shopList">
-          <div class="xingAre">
-            <img src="../../images/xing-1.png" />
-            <p>星选</p>
+    <div class="sw-pic">
+      <scroll class="scCont" ref="scroll">
+        <swiper :lunboList="lunboList"></swiper>
+
+        <!-- 图标宫格区 -->
+        <div class="iconArea">
+          <!-- LOGO区域  因Logo单独放在外层区域会造成页面跳转的问题-->
+          <div class="topLogo"></div>
+          <div class="iconDi">
+            <router-link to="/home/shopList">
+              <div class="xingAre">
+                <img src="../../images/xing-1.png" />
+                <p>星选</p>
+              </div>
+            </router-link>
+            <div class="xingAre">
+              <img src="../../images/you-1.png" />
+              <p>星游</p>
+            </div>
+            <div class="xingAre">
+              <img src="../../images/ji-1.png" />
+              <p>星记</p>
+            </div>
           </div>
+        </div>
+
+        <!-- 热度一 -->
+        <router-link to="/home/newsInfo">
+          <hotOne :hotOneText="hotText"></hotOne>
         </router-link>
-        <div class="xingAre">
-          <img src="../../images/you-1.png" />
-          <p>星游</p>
-        </div>
-        <div class="xingAre">
-          <img src="../../images/ji-1.png" />
-          <p>星记</p>
-        </div>
-      </div>
+
+        <!-- 热度二 -->
+        <hotSec :hotTwoText="hotText"></hotSec>
+
+        <!-- 热度三 -->
+        <hotThir :hotThirdText="hotText"></hotThir>
+
+        <!-- 热度表 -->
+        <hotLi :hotListText="hotText"></hotLi>
+
+        <!-- 列表图 -->
+        <newSer></newSer>
+        <newSor></newSor>
+        <newSpr></newSpr>
+        <div class="end">我是有底线的</div>
+      </scroll>
+
+       <div class="backTop" @click="backTop"></div>
     </div>
-
-    <!-- <ul class="mui-table-view mui-grid-view mui-grid-9">
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <router-link to="/home/newsList">
-          <span class="mui-icon mui-icon-home"></span>
-          <div class="mui-media-body">新闻</div>
-        </router-link>
-      </li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <router-link to="/home/photoList">
-          <span class="mui-icon mui-icon-email"></span>
-          <div class="mui-media-body">图片</div>
-        </router-link>
-      </li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <router-link to="/home/shopList">
-          <span class="mui-icon mui-icon-chatbubble"></span>
-          <div class="mui-media-body">商品</div>
-        </router-link>
-      </li>
-    </ul>
-    -->
-
-    <!-- 主视图排名区域 -->
-    <!-- 热度一 -->
-    <router-link to="/home/newsInfo">
-      <hotOne :hotOneText="hotText"></hotOne>
-    </router-link>
-
-    <!-- 热度二 -->
-    <hotSec :hotTwoText="hotText"></hotSec>
-
-    <!-- 热度三 -->
-    <hotThir :hotThirdText="hotText"></hotThir>
-
-    <!-- 热度表 -->
-    <hotLi :hotListText="hotText"></hotLi>
-
-    <!-- 列表图 -->
-    <newSer></newSer>
-    <newSor></newSor>
-    <newSpr></newSpr>
-    
-  </div>
+  
 </template>
 
 <script>
 // 导入mui中的弹窗提示组件 主要是用于vue-resource请求失败的弹窗提醒
 import { Toast } from "mint-ui";
+import scroll from "../common/scroll.vue"
 
 import swiper from "../subcomponents/swipe.vue";
 import hotOne from "../home-com/hotOne.vue";
@@ -86,6 +69,7 @@ import newSpr from "../home-com/newSpr.vue";
 export default {
   data() {
     return {
+      // scroll: null,
       lunboList: "",
       hotText:"",
     };
@@ -119,6 +103,9 @@ export default {
           }
         });
     },
+    backTop(){
+      this.$refs.scroll.scrollTo(0,0,500)
+    },
   },
   components: {
     hotOne,
@@ -129,6 +116,7 @@ export default {
     newSer,
     newSor,
     newSpr,
+    scroll,
   }
 };
 </script>
@@ -136,6 +124,12 @@ export default {
 <style lang="scss" >
 // 页面F12查找到的.class元素, 并设置该样式
 .sw-pic {
+  position: fixed;
+  top:0;
+  right: 0;
+  left:0;
+  bottom:50px;
+
   .topLogo {
     z-index: 12;
     width: 120px;
@@ -213,5 +207,31 @@ export default {
       font-size: 12px;
     }
   }
+
+  .scCont{
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .end{
+      padding: 8px;
+      text-align: center;
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .backTop{
+  width: 50%;
+  margin: 0 auto;
+  height: 20px;
+  opacity: 0;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 28;
+  
+}
 }
 </style>

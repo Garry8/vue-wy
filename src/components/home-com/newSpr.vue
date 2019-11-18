@@ -1,12 +1,12 @@
 <template>
   <div class="newSer">
-    <div class="topArea">
+    <!-- <div class="topArea">
       <span class="tTitle">最新动态</span>
-    </div>
+    </div>-->
 
     <!-- <li v-for="item in newser" :key="item.id"> -->
-      <li v-if="newser[2]">
-      <div class="ltitle" >
+    <li v-if="newser[2]">
+      <div class="ltitle">
         <img :src="newser[2].authorimg" />
         <div class="rigText">
           <p class="tpName">{{newser[2].author}}</p>
@@ -44,7 +44,6 @@
           <b>喜欢</b>
         </div>
       </div>
-
     </li>
   </div>
 </template>
@@ -53,17 +52,20 @@
 export default {
   data() {
     return {
-      id:this.$route.params.yid,
+      id: this.$route.params.yid,
       newser: [],
       list: [],
-      listThree: {},
+      listThree: {
+        type: Array,
+        default: () => ({})
+      }
     };
   },
   created() {
     this.getnewText();
     this.getnewOneText();
   },
-  
+
   methods: {
     handleClose() {
       console.log("close event");
@@ -119,7 +121,7 @@ export default {
 
 <style lang="scss" scoped>
 .newSer {
-  // height: 420px;  // 这个高度不用给,v-for循环可以自适应高度的,相反给了的话就会出现定位的问题
+  height: 370px; // 这个高度不用给,v-for循环可以自适应高度的,相反给了的话就会出现定位的问题
   background-color: #fff;
   margin-top: 10px;
 
@@ -207,21 +209,19 @@ export default {
         }
       }
     }
+  }
+
+  .middWe {
+    // width: 98%;
+    margin: 12px 0 0 12px;
+
+    img {
+      width: 31%;
+      margin: 2px 1px;
+      vertical-align: middle;
+      border-radius: 5px;
     }
-
-    .middWe{
-      // width: 98%;
-      margin: 12px 0 0 12px;
-
-      img{
-        width: 31%;
-        margin: 2px 1px;
-        vertical-align: middle;
-        border-radius: 5px;
-      }
-
-    }
-  
+  }
 
   .bRight {
     width: 92%;

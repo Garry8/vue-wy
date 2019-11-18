@@ -1,44 +1,46 @@
 <template>
   <div class="appCont">
-    <!--  head头部区域 -->
-    <!-- 顶部的导航栏 -->
-    <div class="h-con" v-show="flag">
-      <mt-header fixed title v-show="true"></mt-header>
-      <p @click="getBack()">〈 返回</p>
-    </div>
+    <!-- <scroll class="scCont"> -->
+      <!--  head头部区域 -->
+      <!-- 顶部的导航栏 -->
+      <div class="h-con" v-show="flag">
+        <mt-header fixed title v-show="true"></mt-header>
+        <p @click="getBack()">〈 返回</p>
+      </div>
 
-    <!-- body内容区域 -->
-    <!-- 中间的视图区 -->
-    <transition>
-      <!-- <scroll class="scCont"> -->
-        <router-view></router-view>
-      <!-- </scroll> -->
-    </transition>
+      <!-- body内容区域 -->
+      <!-- 中间的视图区 -->
+      <transition>
+        <!-- <scroll class="scCont"> -->
+          <router-view></router-view>
+        <!-- </scroll> -->
+      </transition>
 
-    <!-- footer 底部区域 -->
-    <!-- 底部的导航栏 -->
-    <nav class="mui-bar mui-bar-tab" v-show="Tflag">
-      <router-link class="mui-tab-item-ww" to="/home">
-        <span class="mui-icon mui-icon-home"></span>
-        <span class="mui-tab-label">首页</span>
-      </router-link>
+      <!-- footer 底部区域 -->
+      <!-- 底部的导航栏 -->
+      <nav class="mui-bar mui-bar-tab" v-show="Tflag">
+        <router-link class="mui-tab-item-ww" to="/home">
+          <span class="mui-icon mui-icon-home"></span>
+          <span class="mui-tab-label">首页</span>
+        </router-link>
 
-      <router-link class="mui-tab-item-ww" to="/vip">
-        <span class="mui-icon mui-icon-contact"></span>
-        <span class="mui-tab-label">会员</span>
-      </router-link>
-    </nav>
+        <router-link class="mui-tab-item-ww" to="/vip">
+          <span class="mui-icon mui-icon-contact"></span>
+          <span class="mui-tab-label">会员</span>
+        </router-link>
+      </nav>
+    <!-- </scroll> -->
   </div>
 </template>
 
 
 <script>
-// import scroll from './components/common/scroll.vue'
+import scroll from './components/common/scroll.vue'
 
 export default {
   data() {
     return {
-      scroll: null,
+      // scroll: null,
       flag: false,
       Tflag: true
     };
@@ -62,9 +64,9 @@ export default {
       }
     }
   },
-  // components:{
-  //   scroll
-  // },
+  components:{
+    scroll
+  },
 };
 </script>
 
@@ -145,6 +147,10 @@ export default {
 }
 
 // .scCont{
-//   height: 1000px;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 50px;
 // }
 </style>

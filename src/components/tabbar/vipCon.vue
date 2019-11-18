@@ -119,7 +119,7 @@ export default {
     font-size: 12px;
     color: #ccc;
   }
-  
+
   .login {
     border: 0;
     width: 100%;

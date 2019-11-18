@@ -22,6 +22,25 @@ Vue.http.options.root = ''   // 注意这个根路径需要手动去更改 更�
 // 导入图片缩略图插件
 import VuePreview from 'vue-preview'
 Vue.use(VuePreview)
+Vue.use(VuePreview, {
+  mainClass: 'pswp--minimal--dark',
+  barsSize: {top: 0, bottom: 0},
+  captionEl: false,
+  fullscreenEl: false,
+  shareEl: false,
+  bgOpacity: 0.25,
+  tapToClose: true,
+  tapToToggleControls: false
+})
+
+//导入vue-photo-preview ...
+// import preview from 'vue-photo-preview'
+// import 'vue-photo-preview/dist/skin.css'
+// let options = {
+//   fullscreenEl: false
+// };
+// Vue.use(preview, options)
+
 
 // 导入图片放大插件
 import vueDirectiveImagePreviewer from 'vue-directive-image-previewer'
@@ -77,7 +96,7 @@ Vue.use(MintUI)
 
 
 
-var vm = new Vue({
+new Vue({
   el: '#app',
   // store,
   // 将App.vue

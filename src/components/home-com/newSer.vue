@@ -5,8 +5,8 @@
     </div>
 
     <!-- <li v-for="item in newser" :key="item.id"> -->
-      <li v-if="newser[0]">
-      <div class="ltitle" >
+    <li v-if="newser[0]">
+      <div class="ltitle">
         <img :src="newser[0].authorimg" />
         <div class="rigText">
           <p class="tpName">{{newser[0].author}}</p>
@@ -44,7 +44,6 @@
           <b>喜欢</b>
         </div>
       </div>
-
     </li>
   </div>
 </template>
@@ -53,18 +52,20 @@
 export default {
   data() {
     return {
-      id:this.$route.params.yid,
+      id: this.$route.params.yid,
       newser: [],
       list: [],
-      listOne: {},
-     
+      listOne: {
+        type: Array,
+        default: () => ({})
+      }
     };
   },
   created() {
     this.getnewText();
     this.getnewOneText();
   },
-  
+
   methods: {
     handleClose() {
       console.log("close event");
@@ -95,7 +96,7 @@ export default {
               ]);
             }
             // for (let i in this.list[0]) {
-            //     this.listOne.push(this.list[0][i]); 
+            //     this.listOne.push(this.list[0][i]);
             // }
 
             // for (let i in this.list[0]) {
@@ -104,7 +105,6 @@ export default {
             //     this.listOne.push(o)
             // }
             this.listOne = this.list[0];
-            
           } else {
             Toast("获取数据失败");
           }
@@ -130,7 +130,7 @@ export default {
 
 <style lang="scss" scoped>
 .newSer {
-  // height: 420px;  // 这个高度不用给,v-for循环可以自适应高度的,相反给了的话就会出现定位的问题
+  height: 410px; // 这个高度不用给,v-for循环可以自适应高度的,相反给了的话就会出现定位的问题
   background-color: #fff;
   margin-top: 10px;
 
@@ -218,21 +218,19 @@ export default {
         }
       }
     }
+  }
+
+  .middWe {
+    // width: 98%;
+    margin: 12px 0 0 12px;
+
+    img {
+      width: 31%;
+      margin: 2px 1px;
+      vertical-align: middle;
+      border-radius: 5px;
     }
-
-    .middWe{
-      // width: 98%;
-      margin: 12px 0 0 12px;
-
-      img{
-        width: 31%;
-        margin: 2px 1px;
-        vertical-align: middle;
-        border-radius: 5px;
-      }
-
-    }
-  
+  }
 
   .bRight {
     width: 92%;
@@ -255,5 +253,11 @@ export default {
       color: #333;
     }
   }
+
+  // .pswp__zoom-wrap{
+  //   transform: translate(-51%, -15%);
+  //     left: 50%;
+  //     top: 50%;
+  // }
 }
 </style>
