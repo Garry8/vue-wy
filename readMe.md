@@ -1,7 +1,9 @@
 # 这个是初始的练习--依据黑马教程所实现的旅游类的 web app
+## 下面有对应的gif图(可能需要等待 网速加载)
 
 # 新手所记录的笔记与需要注意的代码
 # 虽然这样很繁琐
+
 
 首页
 ![](https://github.com/Garry8/vue-wy/blob/master/src/images/01.gif)
